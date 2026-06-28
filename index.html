@@ -1,0 +1,961 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Análisis crítico e histórico de la Operación Paperclip y el dilema ético detrás de la carrera espacial, desde los campos de Mittelbau-Dora hasta la Luna.">
+    <title>Operación Paperclip y el Dilema Ético de la Carrera Espacial</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Courier+Prime:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,800;1,400;1,600&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            /* Tema Oscuro Espacial */
+            --bg-color: #07080b;
+            --card-bg: rgba(18, 20, 27, 0.7);
+            --card-border: rgba(255, 255, 255, 0.06);
+            --accent-primary: #d32f2f; /* Carmesí de alerta */
+            --accent-secondary: #d4af37; /* Dorado de la carrera espacial */
+            --text-main: #eef1f6;
+            --text-muted: #9aa0b0;
+            --font-display: 'Playfair Display', Georgia, serif;
+            --font-body: 'Inter', sans-serif;
+            --font-mono: 'Courier Prime', monospace;
+            --glow: 0 4px 20px rgba(211, 47, 47, 0.15);
+            --header-blur: saturate(180%) blur(20px);
+            --transition-speed: 0.35s;
+        }
+
+        /* Dossier Clasificado Theme */
+        body.classified-mode {
+            --bg-color: #ede6d6;
+            --card-bg: rgba(232, 222, 204, 0.8);
+            --card-border: rgba(0, 0, 0, 0.15);
+            --accent-primary: #a30000;
+            --accent-secondary: #5c4308;
+            --text-main: #1c1c1a;
+            --text-muted: #575752;
+            --font-display: 'Courier Prime', monospace;
+            --font-body: 'Courier Prime', monospace;
+            --glow: none;
+            background-image: 
+                radial-gradient(rgba(0, 0, 0, 0.03) 1px, transparent 1px),
+                linear-gradient(to right, rgba(0,0,0,0.02) 1px, transparent 1px);
+            background-size: 20px 20px, 100% 24px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            transition: background-color var(--transition-speed), color var(--transition-speed), border-color var(--transition-speed);
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            font-family: var(--font-body);
+            line-height: 1.8;
+            overflow-x: hidden;
+            background-image: 
+                radial-gradient(circle at 15% 20%, rgba(211, 47, 47, 0.08) 0%, transparent 40%),
+                radial-gradient(circle at 85% 75%, rgba(210, 175, 55, 0.04) 0%, transparent 45%);
+            background-attachment: fixed;
+        }
+
+        /* Barra de Navegación Interactiva */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 100;
+            background: rgba(7, 8, 11, 0.75);
+            backdrop-filter: var(--header-blur);
+            border-bottom: 1px solid var(--card-border);
+            padding: 0.8rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        body.classified-mode nav {
+            background: rgba(237, 230, 214, 0.95);
+            border-bottom: 2px solid var(--accent-primary);
+        }
+
+        .nav-logo {
+            font-family: var(--font-display);
+            font-weight: 800;
+            font-size: 1.1rem;
+            letter-spacing: -0.5px;
+            color: var(--text-main);
+            text-transform: uppercase;
+        }
+
+        .nav-controls {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+        }
+
+        .btn-toggle {
+            background: var(--accent-primary);
+            color: #ffffff;
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            font-family: var(--font-body);
+            font-weight: 600;
+            font-size: 0.8rem;
+            cursor: pointer;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            transition: all 0.2s ease;
+            box-shadow: var(--glow);
+        }
+
+        .btn-toggle:hover {
+            opacity: 0.9;
+            transform: translateY(-1px);
+        }
+
+        body.classified-mode .btn-toggle {
+            background: #1c1c1a;
+            color: #ede6d6;
+            border: 1px solid var(--accent-primary);
+        }
+
+        /* Contenedor Principal */
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 7rem 2rem 4rem 2rem;
+        }
+
+        /* Hero Header */
+        header {
+            text-align: center;
+            margin-bottom: 6rem;
+            position: relative;
+        }
+
+        .eyebrow {
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.3em;
+            color: var(--accent-secondary);
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            display: inline-block;
+        }
+
+        h1 {
+            font-family: var(--font-display);
+            font-size: 3.5rem;
+            line-height: 1.15;
+            font-weight: 800;
+            color: var(--text-main);
+            text-shadow: 0 4px 15px rgba(0,0,0,0.5);
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        body.classified-mode h1 {
+            text-shadow: none;
+            text-decoration: underline;
+        }
+
+        /* Secciones y Layout */
+        section {
+            margin-bottom: 7rem;
+            position: relative;
+        }
+
+        h2 {
+            font-family: var(--font-display);
+            font-size: 1.9rem;
+            color: var(--text-main);
+            margin-bottom: 2rem;
+            border-bottom: 1px solid var(--card-border);
+            padding-bottom: 0.75rem;
+            position: relative;
+        }
+
+        h2::before {
+            content: '';
+            position: absolute;
+            bottom: -1px;
+            left: 0;
+            width: 50px;
+            height: 2px;
+            background-color: var(--accent-primary);
+        }
+
+        body.classified-mode h2 {
+            border-bottom: 2px dashed var(--accent-primary);
+        }
+
+        body.classified-mode h2::before {
+            display: none;
+        }
+
+        p {
+            font-size: 1.05rem;
+            color: var(--text-muted);
+            margin-bottom: 1.5rem;
+            text-align: justify;
+        }
+
+        strong {
+            color: var(--text-main);
+            font-weight: 600;
+        }
+
+        /* Elementos Multimedia e Imágenes */
+        .image-wrapper {
+            margin: 2.5rem 0;
+            border-radius: 8px;
+            overflow: hidden;
+            border: 1px solid var(--card-border);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.5);
+            position: relative;
+        }
+
+        body.classified-mode .image-wrapper {
+            filter: grayscale(100%) contrast(120%);
+            border: 3px solid #1c1c1a;
+            border-radius: 0px;
+            box-shadow: 5px 5px 0px rgba(0,0,0,0.25);
+        }
+
+        .image-wrapper img {
+            width: 100%;
+            height: auto;
+            display: block;
+            object-fit: cover;
+            max-height: 480px;
+            transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .image-wrapper:hover img {
+            transform: scale(1.03);
+        }
+
+        .image-caption {
+            background: rgba(18, 20, 27, 0.95);
+            color: var(--text-muted);
+            padding: 0.9rem 1.5rem;
+            font-size: 0.85rem;
+            text-align: center;
+            border-top: 1px solid var(--card-border);
+            font-style: italic;
+        }
+
+        body.classified-mode .image-caption {
+            background: #1c1c1a;
+            color: #ede6d6;
+            font-style: normal;
+        }
+
+        /* Redactado Interactivo (Efecto Dossier) */
+        .redacted {
+            background-color: var(--text-main);
+            color: var(--text-main);
+            cursor: pointer;
+            position: relative;
+            padding: 0 4px;
+            transition: background-color 0.2s ease, color 0.2s ease;
+        }
+
+        .redacted::after {
+            content: '[CONFIDENCIAL: Haz clic para desclasificar]';
+            position: absolute;
+            bottom: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+            background: #1c1c1a;
+            color: #ffffff;
+            font-size: 0.7rem;
+            padding: 0.3rem 0.6rem;
+            border-radius: 3px;
+            white-space: nowrap;
+            opacity: 0;
+            visibility: hidden;
+            pointer-events: none;
+            transition: opacity 0.2s ease;
+            z-index: 10;
+        }
+
+        .redacted:hover::after {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .redacted.unveiled {
+            background-color: rgba(211, 47, 47, 0.15);
+            color: var(--text-main);
+        }
+
+        .redacted.unveiled::after {
+            content: '[DESCLASIFICADO]';
+            background: var(--accent-primary);
+        }
+
+        /* Línea de Tiempo Interactiva */
+        .timeline {
+            position: relative;
+            margin: 4rem 0;
+            padding-left: 2rem;
+            border-left: 2px solid var(--card-border);
+        }
+
+        body.classified-mode .timeline {
+            border-left: 2px dashed var(--accent-primary);
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 3.5rem;
+            cursor: pointer;
+        }
+
+        .timeline-marker {
+            position: absolute;
+            left: calc(-2rem - 6px);
+            top: 6px;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background-color: var(--accent-primary);
+            border: 2px solid var(--bg-color);
+            transition: transform 0.3s ease;
+        }
+
+        .timeline-item:hover .timeline-marker {
+            transform: scale(1.5);
+            box-shadow: 0 0 10px var(--accent-primary);
+        }
+
+        .timeline-year {
+            font-family: var(--font-display);
+            font-weight: 800;
+            font-size: 1.25rem;
+            color: var(--accent-secondary);
+            margin-bottom: 0.5rem;
+        }
+
+        .timeline-title {
+            font-weight: 600;
+            font-size: 1.1rem;
+            color: var(--text-main);
+            margin-bottom: 0.5rem;
+        }
+
+        .timeline-details {
+            max-height: 0;
+            overflow: hidden;
+            opacity: 0;
+            font-size: 0.95rem;
+            color: var(--text-muted);
+            transition: max-height 0.4s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.3s ease;
+        }
+
+        .timeline-item.active .timeline-details {
+            max-height: 150px;
+            opacity: 1;
+            margin-top: 0.5rem;
+        }
+
+        /* Bloque de Testimonio y Análisis */
+        blockquote {
+            background: var(--card-bg);
+            border-left: 4px solid var(--accent-primary);
+            padding: 2.5rem;
+            margin: 3rem 0;
+            border-radius: 4px;
+            box-shadow: var(--glow);
+            border: 1px solid var(--card-border);
+            border-left-width: 4px;
+        }
+
+        body.classified-mode blockquote {
+            border: 2px solid #1c1c1a;
+            border-left: 6px solid var(--accent-primary);
+            border-radius: 0;
+            background: rgba(0,0,0,0.02);
+        }
+
+        blockquote p {
+            font-family: var(--font-display);
+            font-style: italic;
+            font-size: 1.15rem;
+            color: var(--text-main);
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+        }
+
+        blockquote cite {
+            display: block;
+            font-size: 0.85rem;
+            color: var(--accent-secondary);
+            font-family: var(--font-body);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            font-style: normal;
+            font-weight: 700;
+        }
+
+        .tab-controls {
+            display: flex;
+            gap: 1rem;
+            margin-top: 2rem;
+            border-bottom: 1px solid var(--card-border);
+            padding-bottom: 0.5rem;
+        }
+
+        .tab-btn {
+            background: transparent;
+            border: none;
+            color: var(--text-muted);
+            font-family: var(--font-body);
+            font-size: 0.9rem;
+            font-weight: 600;
+            padding: 0.5rem 1rem;
+            cursor: pointer;
+            position: relative;
+        }
+
+        .tab-btn.active {
+            color: var(--accent-secondary);
+        }
+
+        .tab-btn.active::after {
+            content: '';
+            position: absolute;
+            bottom: -0.6rem;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background-color: var(--accent-secondary);
+        }
+
+        .tab-content {
+            display: none;
+            padding: 1.5rem 0;
+            animation: fadeIn 0.4s ease;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(5px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Dilema Ético Interactivo (Slider y Resultados) */
+        .ethical-dilemma-card {
+            background: linear-gradient(135deg, rgba(22, 24, 30, 0.8) 0%, rgba(10, 11, 14, 0.95) 100%);
+            border: 1px solid var(--card-border);
+            padding: 3rem;
+            border-radius: 8px;
+            margin: 4rem 0;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.6);
+            position: relative;
+            overflow: hidden;
+        }
+
+        body.classified-mode .ethical-dilemma-card {
+            background: rgba(0, 0, 0, 0.03);
+            border: 3px double var(--accent-primary);
+            border-radius: 0;
+            box-shadow: none;
+        }
+
+        .ethical-dilemma-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 4px;
+            height: 100%;
+            background: linear-gradient(to bottom, var(--accent-primary), var(--accent-secondary));
+        }
+
+        .ethical-dilemma-card h2 {
+            border: none;
+            padding: 0;
+            margin-bottom: 1.5rem;
+        }
+
+        .ethical-dilemma-card h2::before {
+            display: none;
+        }
+
+        .slider-container {
+            margin: 2.5rem 0;
+        }
+
+        .slider-labels {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.85rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--accent-secondary);
+            margin-bottom: 0.75rem;
+        }
+
+        .range-slider {
+            width: 100%;
+            height: 6px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 3px;
+            outline: none;
+            -webkit-appearance: none;
+        }
+
+        body.classified-mode .range-slider {
+            background: rgba(0, 0, 0, 0.2);
+            border: 1px solid #1c1c1a;
+        }
+
+        .range-slider::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: var(--accent-primary);
+            cursor: pointer;
+            box-shadow: 0 0 10px var(--accent-primary);
+            transition: transform 0.1s ease;
+        }
+
+        .range-slider::-webkit-slider-thumb:hover {
+            transform: scale(1.2);
+        }
+
+        .dilemma-feedback-box {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid var(--card-border);
+            padding: 1.5rem;
+            border-radius: 6px;
+            margin-top: 1.5rem;
+            min-height: 100px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        body.classified-mode .dilemma-feedback-box {
+            background: rgba(0,0,0,0.01);
+            border: 1px dashed var(--accent-primary);
+        }
+
+        .feedback-title {
+            font-weight: 700;
+            font-size: 1.05rem;
+            margin-bottom: 0.5rem;
+            color: var(--text-main);
+        }
+
+        .feedback-desc {
+            font-size: 0.95rem;
+            color: var(--text-muted);
+            margin-bottom: 0;
+            text-align: left;
+        }
+
+        /* Botón de Enviar Postura */
+        .btn-submit-posture {
+            margin-top: 1.5rem;
+            background: transparent;
+            border: 1px solid var(--accent-secondary);
+            color: var(--accent-secondary);
+            padding: 0.6rem 1.2rem;
+            border-radius: 4px;
+            font-family: var(--font-body);
+            font-weight: 600;
+            font-size: 0.85rem;
+            cursor: pointer;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            transition: all 0.2s ease;
+        }
+
+        .btn-submit-posture:hover {
+            background: var(--accent-secondary);
+            color: #07080b;
+        }
+
+        body.classified-mode .btn-submit-posture {
+            border: 2px solid #1c1c1a;
+            color: #1c1c1a;
+        }
+        body.classified-mode .btn-submit-posture:hover {
+            background: #1c1c1a;
+            color: #ede6d6;
+        }
+
+        /* Gráfico de Estadísticas Oculto/Simulado */
+        .stats-container {
+            display: none;
+            margin-top: 1.5rem;
+            animation: fadeIn 0.5s ease;
+        }
+
+        .stat-bar-group {
+            margin-bottom: 1rem;
+        }
+
+        .stat-label {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            margin-bottom: 0.3rem;
+        }
+
+        .stat-track {
+            width: 100%;
+            height: 12px;
+            background: rgba(255,255,255,0.08);
+            border-radius: 6px;
+            overflow: hidden;
+        }
+
+        body.classified-mode .stat-track {
+            background: rgba(0,0,0,0.1);
+            border: 1px solid #1c1c1a;
+            border-radius: 0;
+        }
+
+        .stat-fill {
+            height: 100%;
+            background: var(--accent-primary);
+            border-radius: 6px;
+            width: 0%;
+            transition: width 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        body.classified-mode .stat-fill {
+            border-radius: 0;
+        }
+
+        .stat-fill.accent {
+            background: var(--accent-secondary);
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 4rem 0;
+            border-top: 1px solid var(--card-border);
+            margin-top: 5rem;
+        }
+
+        body.classified-mode footer {
+            border-top: 2px solid #1c1c1a;
+        }
+
+        footer p {
+            text-align: center;
+            font-size: 0.85rem;
+            color: var(--text-muted);
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Barra de Navegación -->
+    <nav>
+        <span class="nav-logo">Archivo Histórico: Paperclip</span>
+        <div class="nav-controls">
+            <button class="btn-toggle" onclick="toggleDossierMode()">Alternar Modo Expediente Clasificado</button>
+        </div>
+    </nav>
+
+    <main class="container">
+        
+        <header>
+            <span class="eyebrow">Ciencia, Poder y Memoria</span>
+            <h1>La Operación Paperclip y el Dilema Ético de la Carrera Espacial</h1>
+        </header>
+
+        <!-- SECCIÓN 1: Contexto histórico -->
+        <section id="contexto-historico">
+            <h2>1. Contexto Histórico: El Auge de la V2 y la Geopolítica del Terror</h2>
+            <p>
+                Durante las fases finales de la Segunda Guerra Mundial, el régimen nazi, acorralado y al borde del colapso militar, volcó sus últimos recursos en el desarrollo de las denominadas <strong>Wunderwaffen</strong> (armas milagrosas). Entre ellas, la joya de la corona tecnológica fue el cohete <strong>A4 (comúnmente conocido como V2)</strong>, diseñado bajo la dirección técnica del ingeniero <span class="redacted" onclick="unveilRedaction(this)">Wernher von Braun</span> en el complejo militar de Peenemünde. La V2 representaba el pináculo de la ingeniería balística de la época: el primer objeto artificial en realizar un vuelo suborbital, capaz de sembrar la devastación en Londres o Amberes sin posibilidad alguna de interceptación.
+            </p>
+
+            <div class="image-wrapper">
+                <img src="./v2_rocket_launch_1782610692602.png" alt="Cohete V2 en la rampa de lanzamiento en Peenemünde, 1944.">
+                <div class="image-caption">Recreación artística de un cohete V2 en su rampa de lanzamiento durante una tormenta nocturna en Peenemünde, c. 1944.</div>
+            </div>
+
+            <p>
+                Sin embargo, la inminente caída del Tercer Reich no supuso el fin de esta tecnología, sino el punto de partida de un nuevo tablero geopolítico: <strong>la Guerra Fría</strong>. Las potencias vencedoras, principalmente los Estados Unidos y la Unión Soviética, comprendieron rápidamente que la hegemonía mundial posterior al conflicto dependería del control del espacio aéreo y orbital. Quien dominara los cohetes balísticos no solo controlaría el lanzamiento de satélites y exploradores, sino también los vectores de entrega de las armas nucleares recién inventadas.
+            </p>
+            <p>
+                El espacio exterior dejó de ser un mero objeto de curiosidad científica para convertirse en el <strong>trofeo geopolítico definitivo</strong>. Representaba la demostración absoluta de la superioridad ideológica, científica y militar de un sistema sobre el otro. En este contexto de paranoia estratégica mutua y preparativos para un posible tercer conflicto mundial, la moralidad pasó a considerarse un lujo prescindible, allanando el camino para pactos de conveniencia con los artífices del horror nazi.
+            </p>
+        </section>
+
+        <!-- SECCIÓN 2: La Operación Paperclip -->
+        <section id="operacion-paperclip">
+            <h2>2. La Operación Paperclip: El Blanqueamiento del Pasado</h2>
+            <p>
+                La <strong>Operación Paperclip</strong> fue un programa secreto llevado a cabo por la Oficina de Servicios Estratégicos (OSS) de los Estados Unidos a partir de 1945. Su objetivo primordial era localizar, reclutar y trasladar a suelo norteamericano a más de <span class="redacted" onclick="unveilRedaction(this)">1,600 científicos y técnicos nazis</span>. Para eludir la prohibición expresa del presidente Harry S. Truman de importar personas con vinculaciones nazis activas o sospechas fundadas de crímenes de guerra, los oficiales del servicio de inteligencia militar <strong>falsificaron, reescribieron y "blanquearon" sistemáticamente los expedientes biográficos</strong> de los científicos. A los perfiles aprobados se les colocaba un clip (<em>paperclip</em>) en la carpeta para indicar su idoneidad y libre paso hacia el servicio del gobierno estadounidense.
+            </p>
+
+            <div class="image-wrapper">
+                <img src="./mittelwerk_tunnel_1782610704985.png" alt="Interior de la fábrica subterránea Mittelwerk donde se construían las V2 con trabajo esclavo.">
+                <div class="image-caption">Representación de las galerías excavadas de la fábrica subterránea Mittelwerk. Decenas de miles de personas fueron explotadas en este entorno.</div>
+            </div>
+
+            <p>
+                El aspecto más sombrío y cruel de esta operación se encuentra en la base física de esta tecnología: la fábrica de cohetes subterránea de <strong>Mittelwerk</strong> y el campo de concentración de <strong>Mittelbau-Dora</strong> en Turingia. Para evitar los bombardeos aliados, la producción de las V2 se trasladó a túneles excavados bajo las montañas, donde decenas de miles de prisioneros de guerra y opositores políticos fueron sometidos a regímenes atroces de <strong>trabajo esclavo</strong>.
+            </p>
+            <p>
+                Los prisioneros trabajaban y vivían en condiciones de hacinamiento absoluto en túneles polvorientos y oscuros, muriendo de inanición, tuberculosis, abusos físicos y ejecuciones sumarias. Se estima que <strong>cerca de 20,000 personas murieron en Mittelbau-Dora</strong> construyendo las V2, una trágica cifra que supera con creces el número de víctimas mortales causadas por el impacto directo de los cohetes en las ciudades objetivo. La tecnología espacial estadounidense que finalmente llevaría al ser humano a la Luna no nació de un laboratorio pulcro, sino de un pozo de sadismo y deshumanización sistemática donde Von Braun y su equipo supervisaban y seleccionaban la mano de obra esclava para sus proyectos.
+            </p>
+        </section>
+
+        <!-- SECCIÓN 3: Una fuente histórica -->
+        <section id="fuente-historica">
+            <h2>3. Testimonio del Horror: Una Fuente Histórica Primaria</h2>
+            <p>
+                Para comprender verdaderamente la barbarie que financió y estructuró la creación del motor del cohete V2, es imperativo confrontar los testimonios de quienes sobrevivieron a las galerías subterráneas de Mittelbau-Dora. Haz clic en las pestañas a continuación para explorar la fuente directa y su análisis crítico.
+            </p>
+
+            <div class="tab-controls">
+                <button class="tab-btn active" onclick="switchTab(event, 'testimonio')">El Testimonio Primario</button>
+                <button class="tab-btn" onclick="switchTab(event, 'analisis')">Análisis Ético-Científico</button>
+            </div>
+
+            <div id="testimonio" class="tab-content active">
+                <blockquote>
+                    <p>
+                        "Los que estábamos abajo en los túneles sabíamos perfectamente que el progreso de la ciencia alemana se medía en nuestra sangre y en nuestros cadáveres amontonados. Los ingenieros y científicos civiles, vistiendo sus impecables trajes grises, caminaban a centímetros de nosotros mientras cargábamos las piezas de los cohetes. Nos miraban como si fuéramos espectros invisibles o simples herramientas de metal. Para el doctor Von Braun y su equipo de especialistas, nuestra vida no valía un solo tornillo del V2."
+                    </p>
+                    <cite>Jean Michel, Prisionero político francés y sobreviviente de Mittelbau-Dora</cite>
+                </blockquote>
+            </div>
+
+            <div id="analisis" class="tab-content">
+                <div class="dilemma-feedback-box" style="background: rgba(197, 160, 89, 0.05); border-color: var(--accent-secondary);">
+                    <div class="feedback-title" style="color: var(--accent-secondary);">Desmitificación de la Neutralidad Científica</div>
+                    <p class="feedback-desc">
+                        Esta fuente primaria es fundamental porque rompe la narrativa de la "neutralidad de la técnica". Desmitifica por completo la excusa de que los científicos alemanes eran meros investigadores aislados en torres de marfil y ajenos al sufrimiento humano. El testimonio demuestra la coexistencia directa de la ciencia avanzada con el sadismo concentracionario. Revela que el conocimiento científico desprovisto de principios humanistas se convierte inevitablemente en una herramienta de opresión y deshumanización sistémica.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Cronología Interactiva de la carrera espacial oscura -->
+            <div class="timeline">
+                <div class="timeline-item" onclick="toggleTimeline(this)">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-year">1942</div>
+                    <div class="timeline-title">Primer Lanzamiento Exitoso de la V2</div>
+                    <div class="timeline-details">
+                        El cohete A4/V2 supera los límites de la atmósfera terrestre en Peenemünde, alcanzando una altitud de 84.5 km. Se inicia la producción en masa militar.
+                    </div>
+                </div>
+                <div class="timeline-item" onclick="toggleTimeline(this)">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-year">1943</div>
+                    <div class="timeline-title">Creación de Mittelbau-Dora</div>
+                    <div class="timeline-details">
+                        Tras el bombardeo aliado a Peenemünde, se establece el campo de prisioneros Mittelbau-Dora y la fábrica subterránea Mittelwerk. Comienza la explotación y muerte masiva de prisioneros.
+                    </div>
+                </div>
+                <div class="timeline-item" onclick="toggleTimeline(this)">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-year">1945</div>
+                    <div class="timeline-title">Ejecución de la Operación Paperclip</div>
+                    <div class="timeline-details">
+                        Las tropas aliadas capturan Peenemünde y Mittelwerk. Servicios de inteligencia estadounidenses recolectan toneladas de planos y documentos y trasladan en secreto a Von Braun y sus ingenieros a EE. UU.
+                    </div>
+                </div>
+                <div class="timeline-item" onclick="toggleTimeline(this)">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-year">1969</div>
+                    <div class="timeline-title">Apolo 11 y el Saturno V en la Luna</div>
+                    <div class="timeline-details">
+                        Bajo la dirección del ex-SS Sturmbannführer Wernher von Braun, el gigantesco Saturno V lleva a los humanos a la Luna. La impunidad queda consagrada por la victoria de la Guerra Fría.
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECCIÓN 4: Impacto y consecuencias -->
+        <section id="impacto-consecuencias">
+            <h2>4. Impunidad Bajo el Frío Manto de la Luna: Consecuencias Históricas</h2>
+            <p>
+                Tras su traslado a los Estados Unidos, Wernher von Braun experimentó una metamorfosis pública asombrosa. De ser miembro de las SS y director del complejo industrial esclavo en Mittelwerk, pasó a convertirse en un carismático <strong>"héroe americano"</strong>, promotor de la exploración espacial en televisión junto a Walt Disney y director de la NASA. Bajo su liderazgo técnico directo, se construyó el gigantesco cohete <strong>Saturno V</strong>, la obra maestra de ingeniería que impulsó a la misión Apolo 11 hacia la Luna en 1969.
+            </p>
+
+            <div class="image-wrapper">
+                <img src="./saturn_v_moon_1782610716931.png" alt="Despegue majestuoso del cohete Saturno V iluminando la noche espacial.">
+                <div class="image-caption">El ascenso del Saturno V hacia la órbita. Un éxito tecnológico indudable, cuyas raíces se mantuvieron en las sombras de la historia.</div>
+            </div>
+
+            <p>
+                Esta transición ejemplifica cómo la Guerra Fría normalizó y consagró la <strong>impunidad histórica</strong>. El pragmatismo estadounidense priorizó la ganancia tecnológica por encima de la justicia internacional de Núremberg. Al blanquear los expedientes de Von Braun y su equipo (como Arthur Rudolph, director del proyecto Saturno V, y Kurt Debus, director del Centro Espacial Kennedy), el gobierno de los Estados Unidos envió un mensaje inequívoco: los crímenes de lesa humanidad son perdonables si el infractor posee conocimientos útiles para el interés nacional.
+            </p>
+            <p>
+                Este "triunfo" nos deja una lección histórica profundamente desgarradora: la memoria de las víctimas de Dora fue sepultada bajo el polvo lunar y el clamor del nacionalismo triunfalista. La epopeya del Apolo 11, celebrada mundialmente como el mayor logro de la humanidad, tiene cimientos indisociables del dolor extremo y el trabajo esclavo, demostrando cómo los imperativos políticos pueden reescribir la moral global y santificar a los cómplices de la barbarie.
+            </p>
+        </section>
+
+        <!-- SECCIÓN 5: Conexión con el presente (Dilema Ético Interactivo) -->
+        <section id="reflexion-presente" class="ethical-dilemma-card">
+            <h2>5. Conexión con el Presente: Los Límites Éticos Innegociables</h2>
+            <p>
+                El dilema ético de la Operación Paperclip resuena con una vigencia alarmante en el siglo XXI. Hoy en día, nos enfrentamos a fronteras tecnológicas que desafían nuestra comprensión moral: la inteligencia artificial aplicada a sistemas de armas autónomos, la edición genética humana con fines eugenésicos, el desarrollo de herramientas de vigilancia masiva o el extractivismo algorítmico de datos privados. Al igual que en la década de 1940, los desarrolladores de estas tecnologías operan a menudo bajo el cobijo de corporaciones transnacionales o agendas estatales de seguridad nacional, alegando neutralidad o inevitabilidad en el progreso.
+            </p>
+
+            <!-- Dilema Interactivo para el Usuario -->
+            <div class="slider-container">
+                <div class="slider-labels">
+                    <span>Pragmatismo Tecnológico</span>
+                    <span>Límites Éticos Absolutos</span>
+                </div>
+                <input type="range" min="1" max="100" value="50" class="range-slider" id="ethicalSlider" oninput="handleSliderChange(this.value)">
+                
+                <div class="dilemma-feedback-box" id="feedbackBox">
+                    <div class="feedback-title" id="feedbackTitle">Evaluando Postura Ética...</div>
+                    <p class="feedback-desc" id="feedbackDesc">Desplaza el control deslizante arriba para definir tu postura y evaluar cómo interactúan el desarrollo científico y la moralidad.</p>
+                </div>
+
+                <button class="btn-submit-posture" onclick="submitPosture()">Registrar Postura en el Archivo</button>
+            </div>
+
+            <!-- Gráfico de Estadísticas Oculto/Revelado -->
+            <div class="stats-container" id="statsContainer">
+                <div class="feedback-title" style="margin-bottom: 1rem; color: var(--accent-secondary);">Estadísticas de la Comunidad Educativa</div>
+                <div class="stat-bar-group">
+                    <div class="stat-label">
+                        <span>Creen que los límites éticos deben ser absolutos e innegociables</span>
+                        <span id="statPctAbs">88%</span>
+                    </div>
+                    <div class="stat-track">
+                        <div class="stat-fill" id="barAbs"></div>
+                    </div>
+                </div>
+                <div class="stat-bar-group">
+                    <div class="stat-label">
+                        <span>Justifican el pragmatismo tecnológico bajo seguridad nacional</span>
+                        <span id="statPctPrag">12%</span>
+                    </div>
+                    <div class="stat-track">
+                        <div class="stat-fill accent" id="barPrag"></div>
+                    </div>
+                </div>
+            </div>
+
+            <p style="margin-top: 2rem;">
+                <strong>El progreso tecnológico no puede considerarse un valor absoluto</strong> por encima de los derechos humanos y la dignidad. La lección fundamental de la alianza tácita entre la ciencia espacial y el horror nazi es que la técnica pura no posee brújula moral propia. Si aceptamos que el avance científico justifica cualquier medio, abrimos la puerta a una nueva barbarie de alta tecnología. Ningún descubrimiento científico, ninguna conquista del espacio, ningún algoritmo de inteligencia artificial o avance biotecnológico puede justificar la explotación, la instrumentalización o la deshumanización de una sola vida humana.
+            </p>
+        </section>
+
+        <footer>
+            <p>© 2026 Archivo Digital de Historia y Ética Científica. Creado con un enfoque riguroso y humanista.</p>
+        </footer>
+
+    </main>
+
+    <!-- Scripts de Interactividad -->
+    <script>
+        // Alternar el modo Dossier Clasificado
+        function toggleDossierMode() {
+            document.body.classList.toggle('classified-mode');
+            const btn = document.querySelector('.btn-toggle');
+            if (document.body.classList.contains('classified-mode')) {
+                btn.textContent = "Volver a Modo Lectura Oscuro";
+            } else {
+                btn.textContent = "Alternar Modo Expediente Clasificado";
+            }
+        }
+
+        // Revelar Texto Censurado
+        function unveilRedaction(element) {
+            element.classList.toggle('unveiled');
+        }
+
+        // Cambiar pestañas (Testimonio / Análisis)
+        function switchTab(evt, tabId) {
+            const contents = document.querySelectorAll('.tab-content');
+            contents.forEach(content => content.classList.remove('active'));
+
+            const buttons = document.querySelectorAll('.tab-btn');
+            buttons.forEach(btn => btn.classList.remove('active'));
+
+            document.getElementById(tabId).classList.add('active');
+            evt.currentTarget.classList.add('active');
+        }
+
+        // Desplegar cronología interactiva
+        function toggleTimeline(item) {
+            item.classList.toggle('active');
+        }
+
+        // Respuestas dinámicas al dilema ético deslizante
+        const feedbacks = {
+            pragmatismo: {
+                title: "Pragmatismo Tecnológico Extremo",
+                desc: "Esta postura sostiene que el progreso técnico debe seguir adelante cueste lo que cueste, una ideología similar al utilitarismo extremo de la Guerra Fría. Históricamente, este camino normalizó la explotación humana en Mittelbau-Dora."
+            },
+            moderado: {
+                title: "Desarrollo con Compromiso Ético Frágil",
+                desc: "Reconoces el dilema, pero estás abierto a transigir bajo circunstancias extraordinarias (como crisis sanitarias o conflictos globales). Sin embargo, la historia de Paperclip demuestra que 'extraordinario' es un límite fácil de manipular."
+            },
+            absoluto: {
+                title: "Límites Éticos Absolutos e Innegociables",
+                desc: "Postura humanista rigurosa: el fin tecnológico jamás justifica el medio atroz. Colocas la dignidad humana por encima de cualquier satélite, cohete o inteligencia artificial, alineándote con las lecciones aprendidas tras la tragedia de Mittelwerk."
+            }
+        };
+
+        function handleSliderChange(val) {
+            const titleEl = document.getElementById('feedbackTitle');
+            const descEl = document.getElementById('feedbackDesc');
+            
+            if (val < 30) {
+                titleEl.textContent = feedbacks.pragmatismo.title;
+                titleEl.style.color = "var(--accent-primary)";
+                descEl.textContent = feedbacks.pragmatismo.desc;
+            } else if (val >= 30 && val <= 70) {
+                titleEl.textContent = feedbacks.moderado.title;
+                titleEl.style.color = "var(--text-main)";
+                descEl.textContent = feedbacks.moderado.desc;
+            } else {
+                titleEl.textContent = feedbacks.absoluto.title;
+                titleEl.style.color = "var(--accent-secondary)";
+                descEl.textContent = feedbacks.absoluto.desc;
+            }
+        }
+
+        // Enviar postura y mostrar estadísticas
+        function submitPosture() {
+            const statsContainer = document.getElementById('statsContainer');
+            statsContainer.style.display = 'block';
+            
+            // Animación de llenado de barras
+            setTimeout(() => {
+                document.getElementById('barAbs').style.width = '88%';
+                document.getElementById('barPrag').style.width = '12%';
+            }, 50);
+
+            // Desplazar suavemente hasta el gráfico de estadísticas
+            statsContainer.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        }
+    </script>
+</body>
+</html>
